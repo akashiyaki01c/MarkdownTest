@@ -25,7 +25,7 @@ jobs:
         run: |
           # ディレクトリを作成して変換を実行
           mkdir output
-          deno run --allow-read --allow-write --allow-net ./compiler/compile.ts
+          deno run --allow-read --allow-write --allow-net ./compiler/compile.ts all
 
       # .nojekyllファイルを追加（Jekyll無効化）
       - name: Disable Jekyll
