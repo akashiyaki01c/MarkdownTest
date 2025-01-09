@@ -34,8 +34,13 @@ jobs:
       - name: Disable Jekyll
         run: echo > ./output/.nojekyll
 
+      # アーティファクトに追加
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ./output
+
       # GitHub Pages用に成果物をアップロード
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          path: ./output
