@@ -109,7 +109,7 @@ function htmlFileToHtmlFile(mdFilePath: string, htmlFilePath: string) {
 }
 /** ファイルをコンパイルして完全なHTMLファイルに変換する関数 */
 export function compileFile(filePath: string) {
-	const toFilePath = Path.resolve(filePath.replace("markdowns/", "output/").replace(".md", ".html"));
+	const toFilePath = Path.resolve(import.meta.dirname || "", "../", filePath.replace("markdowns/", "output/").replace(".md", ".html"));
 	console.log(filePath, toFilePath);
 	switch (Path.extname(filePath)) {
 		case ".md": {
