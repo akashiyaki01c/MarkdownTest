@@ -11,6 +11,7 @@ jobs:
 
     permissions: 
       id-token: write
+      pages: write
     
     steps:
       # リポジトリをチェックアウト
@@ -26,7 +27,6 @@ jobs:
       # Markdown→HTML変換を実行
       - name: Convert Markdown to HTML
         run: |
-          # ディレクトリを作成して変換を実行
           mkdir output
           deno run --allow-read --allow-write --allow-net ./compiler/compile.ts all
 
@@ -36,6 +36,6 @@ jobs:
 
       # GitHub Pages用に成果物をアップロード
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
         with:
           path: ./output
